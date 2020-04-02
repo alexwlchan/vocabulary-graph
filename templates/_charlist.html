@@ -1,0 +1,15 @@
+{% for phrase_chars, phrase_data in phrases %}
+<a href="/phrase?chars={{ phrase_chars }}" class="phrase_detail_link">
+  <div class="phrase_big">
+    <div class="character">
+      {{ phrase_chars }}
+    </div>
+    <div class="pinyin">
+      {{ phrase_data.pinyin }}
+    </div>
+    <div class="meaning">
+      {{ phrase_data.meaning }}
+    </div>
+  </div>
+</a>
+{% endfor %}

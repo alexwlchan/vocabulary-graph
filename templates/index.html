@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main>
+  <p>A random selection of {{ phrases|length }} phrases:</p>
+
+  {% include "_charlist.html" %}
+
+  <p>or you can see a list of <a href="{{ url_for('every_phrase') }}">every phrase</a>.</p>
+</main>
+
+{% endblock %}

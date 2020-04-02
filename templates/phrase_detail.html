@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main>
+
+<div class="phrase_big">
+  <div class="character">
+    {{ phrase_chars }}
+  </div>
+  <div class="pinyin">
+    {{ phrase_data.pinyin }}
+  </div>
+  <div class="meaning">
+    {{ phrase_data.meaning }}
+  </div>
+</div>
+
+{% if phrase_data.notes %}
+<div class="notes">
+  <h3>Notes</h3>
+  {{ phrase_data.notes | markdownify | safe }}
+</div>
+{% endif %}
+
+<h3>Phrase graph</h3>
+<svg></svg>
+<script>
+  const graph = {{ d3_data | tojson }};
+  drawGraph(graph);
+</script>
+
+{% if related_phrases %}
+<div class="related_phrases">
+  <h3>Related phrases</h3>
+
+  <ul>
+    {% for related_char, related_data in related_phrases.items() %}
+    <li>
+      <a href="/phrase?chars={{ related_char }}">{{ related_char }}</a> ({{ related_data.phrase.meaning }})
+      {% if related_data.link.note %} &ndash; {{ related_data.link.note }}{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<p class="navigation">
+  <a href="{{ url_for('index') }}">&larr; back to the main page</a>
+  •
+  <a href="{{ url_for('shuffle') }}">pick a random character &rarr;</a>
+</p>
+
+</main>
+
+{% endblock %}

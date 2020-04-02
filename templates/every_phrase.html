@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main>
+  <p>Every phrase in my notes:</p>
+
+  {% include "_charlist.html" %}
+
+  <p>or you can see a <a href="{{ url_for('index') }}">random selection</a>.</p>
+</main>
+
+{% endblock %}
