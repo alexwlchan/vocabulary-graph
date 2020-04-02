@@ -1,102 +1,37 @@
 {
-  "directed": false,
-  "multigraph": false,
-  "graph": {
-  },
   "nodes": [
     {
-      "id": "口",
+      "id": "\u732b",
       "distance": 0
     },
     {
-      "id": "吃饭",
+      "id": "\u72d7",
       "distance": 1
     },
     {
-      "id": "喝",
+      "id": "\u55b5",
       "distance": 1
     },
     {
-      "id": "咬",
-      "distance": 1
-    },
-    {
-      "id": "喵",
-      "distance": 1
-    },
-    {
-      "id": "猫",
-      "distance": 2
-    },
-    {
-      "id": "渴",
+      "id": "\u53e3",
       "distance": 2
     }
-    ,
-        {
-          "id": "苗",
-          "distance": 2
-        }
-        ,
-            {
-              "id": "咪咪",
-              "distance": 2
-            }        ,
-            {
-              "id": "小猫",
-              "distance": 2
-            }
-
-
   ],
   "links": [
     {
-      "source": "口",
-      "target": "吃饭",
-      "distance": 0
-    },
-    {
-      "source": "口",
-      "target": "喝",
-      "distance": 0
-    },
-    {
-      "source": "口",
-      "target": "咬",
-      "distance": 0
-    },
-    {
-      "source": "口",
-      "target": "喵",
-      "distance": 0
-    },
-    {
-      "source": "喝",
-      "target": "渴",
+      "source": "\u53e3",
+      "target": "\u55b5",
       "distance": 1
     },
     {
-      "source": "喵",
-      "target": "猫",
-      "distance": 1
+      "source": "\u55b5",
+      "target": "\u732b",
+      "distance": 0
     },
     {
-      "source": "喵",
-      "target": "苗",
-      "distance": 1
+      "source": "\u732b",
+      "target": "\u72d7",
+      "distance": 0
     }
-    ,
-        {
-          "source": "喵",
-          "target": "咪咪",
-          "distance": 1
-        },
-        {
-          "source": "喵",
-          "target": "小猫",
-          "distance": 1
-        }
-
-
   ]
 }

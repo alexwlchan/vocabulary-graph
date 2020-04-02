@@ -28,106 +28,84 @@ G.add_edge("喝", "渴")
 
 
 @functools.lru_cache()
-def get_nodes_within_distance(graph, *, node, max_distance=2):
+def get_nodes_within_distance(graph, *, node, max_distance):
     """
     Get the nodes within a given distance of the selected node.
 
-    e.g. if ``max_distance`` is 2, it would find all nodes that are at most
-    two steps away from ``node``.
+    Returns a map (node -> distance), e.g. for the graph
+
+        A - B - C - D
+        |
+        E
+
+    if you looked up nodes that were distance 2 from "A", it would return
+
+        {
+            "A": 0,
+            "B": 1, "E": 1,
+            "C": 2
+        }
+
     """
-    # Distance 0 from the target node is only the node itself.
-    seen = set(node)
-    result = {0: set(node)}
+    # The only node at distance 0 from the target node is the target itself.
+    result = {node: 0}
 
-    for dist in range(max_distance):
-        # Find all the direct neighbours of anything that's ``dist``
-        # from the central node, and which we haven't seen before.
-        new_neighbours = reduce(or_, [
-            set(graph.neighbors(node)) for node in result[dist]
-        ]) - seen
-
-        # Anything that's one away from ``dist`` is ``dist + 1`` away
+    for search_dist in range(max_distance):
+        # Find all the direct neighbours of anything that's ``search_dist``
         # from the central node.
-        result[dist + 1] = new_neighbours
-        seen |= new_neighbours
+        new_neighbors = reduce(
+            or_,
+            [
+                set(graph.neighbors(node))
+                for node, node_dist in result.items()
+                if node_dist == search_dist
+            ],
+        )
+
+        # Anything that's one away from ``search_dist`` is ``search_dist + 1``
+        # away from the central node.
+        for neighbor in new_neighbors:
+            if neighbor not in result:
+                result[neighbor] = search_dist + 1
 
     return result
 
 
-def write_html(f_name):
-    result = '''<script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
-<style>
-.link {
-  stroke: #aaa;
-}
-.node text {
-stroke:#333;
-cursos:pointer;
-}
-.node circle{
-stroke:#fff;
-stroke-width:3px;
-fill:#555;
-}
-</style>
-<body>
-<script>
-var width = 300,
-    height = 250
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-var force = d3.layout.force()
-    .gravity(.1)
-    .distance(100)
-    .charge(-100)
-    .size([width, height]);
-'''
-    result += 'd3.json("' + f_name + '", function(json) {'
-    result += '''force
-      .nodes(json.nodes)
-      .links(json.links)
-      .start();
-  var link = svg.selectAll(".link")
-      .data(json.links)
-    .enter().append("line")
-      .attr("class", "link")
-    .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
-  var node = svg.selectAll(".node")
-      .data(json.nodes)
-    .enter().append("g")
-      .attr("class", "node")
-      .call(force.drag);
-  node.append("circle")
-      .attr("r","5");
-  node.append("text")
-      .attr("dx", 12)
-      .attr("dy", ".35em")
-      .text(function(d) { return d.name });
-  force.on("tick", function() {
-    link.attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
-    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-  });
-});
-</script>
-'''
+def create_d3_data(graph, *, included_nodes):
+    result = {"nodes": [], "links": []}
+
+    # A node in the d3 graph is annotated with:
+    #
+    #   -   an ``id`` (identifies the node, and the text to display)
+    #   -   a ``distance`` (how far is this from the centre?)
+    #
+    result["nodes"] = [
+        {"id": node, "distance": distance} for node, distance in included_nodes.items()
+    ]
+
+    # A link in the d3 graph is annoted with:
+    #
+    #   -   ``source`` and ``target`` (the start/end points, although the
+    #       displayed graph is not directed)
+    #   -   ``distance`` (how far is this from the centre?)
+    #
+    for node_1, node_2 in graph.edges:
+        try:
+            link = {
+                "source": node_1,
+                "target": node_2,
+                "distance": min([included_nodes[node_1], included_nodes[node_2]]),
+            }
+        except KeyError:
+            pass
+        else:
+            result["links"].append(link)
+
     return result
 
 
+included_phrases = get_nodes_within_distance(G, node="猫", max_distance=2)
 
-from pprint import pprint
+import json
 
-# pprint(get_nodes_within_distance(G, node="口"))
-
-print(write_html("data.json"))
-
-# print(json_graph.node_link_data(G))
-
-
-
-
-
-
+print(json.dumps(create_d3_data(G, included_nodes=included_phrases), indent=2))
