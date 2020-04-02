@@ -28,7 +28,7 @@ a {
 }
 
 a:hover {
-  background: rgba(168, 118, 0, 1);
+  background: rgba(168, 118, 0, 0.25);
 }
 
 a.phrase_detail_link {
