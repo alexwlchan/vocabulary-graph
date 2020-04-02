@@ -4,6 +4,7 @@
 #
 #    pip-compile
 #
+attrs==19.3.0             # via -r requirements.in
 click==7.1.1              # via flask
 decorator==4.4.2          # via networkx
 flask==1.1.1              # via -r requirements.in
