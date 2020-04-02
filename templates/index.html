@@ -9,7 +9,11 @@
     Phrases are connected if they have a common character, meaning, or some other association that helps me remember them.
   </p>
 
-  <p>A random selection of {{ phrases|length }} phrases:</p>
+  <p>Here is a random selection of {{ phrases | length }} Chinese phrases:</p>
+
+  {% include "_charlist.html" %}
+
+  <p>And here is a graph which shows the connections between them, and other closely-related characters:</p>
 
   <svg></svg>
   <script>
@@ -17,7 +21,6 @@
     drawGraph(graph, 500);
   </script>
 
-  {% include "_charlist.html" %}
 
   <p>or you can see a list of <a href="{{ url_for('every_phrase') }}">every phrase</a>.</p>
 </main>

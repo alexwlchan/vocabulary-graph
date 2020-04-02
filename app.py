@@ -27,6 +27,12 @@ G.add_node("早", meaning="sunrise")
 G.add_node("旦", meaning="early morning")
 G.add_node("日", meaning="sun")
 G.add_node("日本", meaning="Japan")
+G.add_node("好久不见", meaning="long time no see")
+G.add_node("再见", meaning="goodbye")
+G.add_node("见", meaning="to see")
+G.add_node("你怎么样", meaning="how are you doing?")
+G.add_node("什么", meaning="what?")
+G.add_node("最近", meaning="recently")
 
 G.add_edge("口", "吃饭", note="Look at the 口 radical")
 G.add_edge("口", "喝")
@@ -40,6 +46,9 @@ G.add_edge("早", "旦")
 G.add_edge("早", "日")
 G.add_edge("日", "旦")
 G.add_edge("日", "日本")
+G.add_edge("再见", "见")
+G.add_edge("好久不见", "见")
+G.add_edge("你怎么样", "什么")
 
 
 included_phrases = get_nodes_within_distance(G, node="猫", max_distance=2)
@@ -82,10 +91,13 @@ def index():
 
 @app.route("/every_phrase")
 def every_phrase():
+    for phrase, metadata in G.nodes.items():
+        metadata["pinyin"] = pinyin.get(phrase, delimiter=" ")
+
     return render_template(
         "every_phrase.html",
         phrases=sorted(G.nodes.items()),
-        d3_data=create_d3_data(G, included_nodes={node: 2 for node in G.nodes})
+        d3_data=create_d3_data(G, included_nodes={node: 1 for node in G.nodes})
     )
 
 

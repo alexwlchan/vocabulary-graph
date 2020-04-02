@@ -18,7 +18,7 @@ function drawGraph(graph, height) {
         // push nodes apart to space them out
         .force("charge", d3.forceManyBody().strength(-100))
         // add some collision detection so they don't overlap
-        .force("collide", d3.forceCollide().radius(15))
+        .force("collide", d3.forceCollide().radius(25))
         // and draw them around the centre of the SVG
         .force("center", d3.forceCenter(width / 2, height / 2 + 25));
 
