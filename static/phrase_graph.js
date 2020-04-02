@@ -4,7 +4,7 @@
 // LICENSE: MIT
 // Source: https://bl.ocks.org/martinjc/7aa53c7bf3e411238ac8aef280bd6581
 function drawGraph(graph, height) {
-    var width = 600;
+    var width = 750;
     var svg = d3.select("svg").attr('viewBox', '0 0 ' + width + ' ' + height);
 
     var simulation = d3.forceSimulation()
@@ -16,7 +16,7 @@ function drawGraph(graph, height) {
               return 0.05 * (d.distance + 1);
             }))
         // push nodes apart to space them out
-        .force("charge", d3.forceManyBody().strength(-120))
+        .force("charge", d3.forceManyBody().strength(-100))
         // add some collision detection so they don't overlap
         .force("collide", d3.forceCollide().radius(15))
         // and draw them around the centre of the SVG
