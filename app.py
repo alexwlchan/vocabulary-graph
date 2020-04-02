@@ -4,7 +4,6 @@ import random
 
 from flask import abort, Flask, redirect, render_template, request, url_for
 import markdown
-import pinyin
 
 from graph_logic import create_d3_data, get_nodes_within_distance
 from phrase_graph import ChinesePhraseGraph
@@ -38,9 +37,6 @@ def index():
                 [distance, selected_graph_nodes.get(phrase, float("inf"))]
             )
 
-    for phrase, metadata in selected_phrases:
-        metadata["pinyin"] = pinyin.get(phrase, delimiter=" ")
-
     return render_template(
         "index.html",
         phrases=selected_phrases,
@@ -52,9 +48,6 @@ def index():
 
 @app.route("/every_phrase")
 def every_phrase():
-    for phrase, metadata in chinese_phrase_graph.nodes.items():
-        metadata["pinyin"] = pinyin.get(phrase, delimiter=" ")
-
     return render_template(
         "every_phrase.html",
         phrases=sorted(chinese_phrase_graph.nodes.items()),
@@ -72,8 +65,6 @@ def phrase_detail():
         phrase_data = chinese_phrase_graph.nodes()[phrase]
     except KeyError:
         abort(404)
-
-    phrase_data["pinyin"] = pinyin.get(phrase, delimiter=" ")
 
     local_neighborhood = get_nodes_within_distance(
         chinese_phrase_graph, node=phrase, max_distance=2
