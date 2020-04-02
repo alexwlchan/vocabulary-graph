@@ -3,12 +3,8 @@
 // Author: Martin Chorley
 // LICENSE: MIT
 // Source: https://bl.ocks.org/martinjc/7aa53c7bf3e411238ac8aef280bd6581
-function drawGraph(graph) {
-    var width_from_json = graph.width;
-    var height_from_json = graph.height;
-
+function drawGraph(graph, height) {
     var width = 600;
-    var height = 350;
     var svg = d3.select("svg").attr('viewBox', '0 0 ' + width + ' ' + height);
 
     var simulation = d3.forceSimulation()

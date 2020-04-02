@@ -44,17 +44,37 @@ def markdownify(s):
 
 @app.route("/")
 def index():
-    phrases = random.sample(G.nodes.items(), 5)
+    selected_phrases = random.sample(G.nodes.items(), 5)
 
-    for chars, metadata in phrases:
-        metadata["pinyin"] = pinyin.get(chars, delimiter=" ")
+    selected_graph_nodes = {}
 
-    return render_template("index.html", phrases=phrases)
+    for phrase, _ in selected_phrases:
+        local_neighborhood = get_nodes_within_distance(
+            G, node=phrase, max_distance=2
+        )
+
+        for phrase, distance in local_neighborhood.items():
+            selected_graph_nodes[phrase] = min(
+                [distance, selected_graph_nodes.get(phrase, float("inf"))]
+            )
+
+    for phrase, metadata in selected_phrases:
+        metadata["pinyin"] = pinyin.get(phrase, delimiter=" ")
+
+    return render_template(
+        "index.html",
+        phrases=selected_phrases,
+        d3_data=create_d3_data(G, included_nodes=selected_graph_nodes)
+    )
 
 
 @app.route("/every_phrase")
 def every_phrase():
-    return render_template("every_phrase.html", phrases=sorted(G.nodes.items()))
+    return render_template(
+        "every_phrase.html",
+        phrases=sorted(G.nodes.items()),
+        d3_data=create_d3_data(G, included_nodes={node: 2 for node in G.nodes})
+    )
 
 
 @app.route("/phrase")

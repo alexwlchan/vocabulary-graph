@@ -8,6 +8,13 @@
   {% include "_charlist.html" %}
 
   <p>or you can see a <a href="{{ url_for('index') }}">random selection</a>.</p>
+
+  <h3>Phrase graph</h3>
+  <svg></svg>
+  <script>
+    const graph = {{ d3_data | tojson }};
+    drawGraph(graph, 500);
+  </script>
 </main>
 
 {% endblock %}

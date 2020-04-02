@@ -18,6 +18,11 @@ body {
   font-size: 1.5em;
 }
 
+.phrase_detail .phrase_big {
+  margin-bottom: 2em;
+  margin-top: .75em;
+}
+
 a {
   color: rgba(168, 118, 0, 1);
 }
@@ -63,6 +68,14 @@ main, aside .aside_inner {
   margin-right: auto;
 }
 
+p {
+  line-height: 1.65em;
+}
+
+main p:first-child {
+  margin-top: 2em;
+}
+
 aside {
   background: rgba(255, 179, 0, 1);
   border-bottom: 2px solid rgba(117, 82, 0, 1);
@@ -85,7 +98,7 @@ div.notes p:nth-child(2) {
 }
 
 .related_phrases ul {
-  margin-top: 0.5em;
+  margin-top: 0.75em;
 }
 
 .related_phrases li {
@@ -155,5 +168,6 @@ svg {
   background: rgba(0, 0, 0, 0.03);
   border: 4px solid #ddd;
   margin-top: 1em;
-  border-radius: 12px
+  border-radius: 12px;
+  margin-bottom: 2em;
 }

@@ -2,8 +2,9 @@
 
 {% block content %}
 
-<main>
+<main class="phrase_detail">
 
+<h3>Phrase</h3>
 <div class="phrase_big">
   <div class="character">
     {{ phrase_chars }}
@@ -27,7 +28,7 @@
 <svg></svg>
 <script>
   const graph = {{ d3_data | tojson }};
-  drawGraph(graph);
+  drawGraph(graph, 350);
 </script>
 
 {% if related_phrases %}

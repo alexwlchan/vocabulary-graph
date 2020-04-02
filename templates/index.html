@@ -3,7 +3,19 @@
 {% block content %}
 
 <main>
+  <p>
+    This is an experiment in using <a href="https://en.wikipedia.org/wiki/Graph_theory">graph theory</a> as a learning tool for Chinese.
+    Rather than treating vocabulary as a flat list, phrases are treated as vertices of a graph.
+    Phrases are connected if they have a common character, meaning, or some other association that helps me remember them.
+  </p>
+
   <p>A random selection of {{ phrases|length }} phrases:</p>
+
+  <svg></svg>
+  <script>
+    const graph = {{ d3_data | tojson }};
+    drawGraph(graph, 500);
+  </script>
 
   {% include "_charlist.html" %}
 
