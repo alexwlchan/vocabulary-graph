@@ -1,59 +1,16 @@
 #!/usr/bin/env python
 
-import json
 import random
 
-from flask import Flask, redirect, render_template, request, url_for
+from flask import abort, Flask, redirect, render_template, request, url_for
 import markdown
-import networkx as nx
 import pinyin
 
 from graph_logic import create_d3_data, get_nodes_within_distance
+from phrase_graph import ChinesePhraseGraph
 
-G = nx.Graph()
+chinese_phrase_graph = ChinesePhraseGraph(path="phrases_zh.json")
 
-G.add_node("口", meaning="mouth")
-G.add_node("吃饭", meaning="to eat food")
-G.add_node("喝", meaning="to drink")
-G.add_node("咬", meaning="to bite")
-G.add_node("喵", meaning="to meow, like a cat")
-G.add_node("猫", meaning="cat")
-G.add_node("狗", meaning="dog")
-G.add_node("渴", meaning="thirsty")
-G.add_node("你好", meaning="hello")
-G.add_node("您好", meaning="hello, but polite you")
-G.add_node("高兴", meaning="happy")
-G.add_node("早", meaning="sunrise")
-G.add_node("旦", meaning="early morning")
-G.add_node("日", meaning="sun")
-G.add_node("日本", meaning="Japan")
-G.add_node("好久不见", meaning="long time no see")
-G.add_node("再见", meaning="goodbye")
-G.add_node("见", meaning="to see")
-G.add_node("你怎么样", meaning="how are you doing?")
-G.add_node("什么", meaning="what?")
-G.add_node("最近", meaning="recently")
-
-G.add_edge("口", "吃饭", note="Look at the 口 radical")
-G.add_edge("口", "喝")
-G.add_edge("口", "咬")
-G.add_edge("口", "喵")
-G.add_edge("猫", "喵")
-G.add_edge("猫", "狗", note="Notice the matching radical!")
-G.add_edge("喝", "渴")
-G.add_edge("你好", "您好")
-G.add_edge("早", "旦")
-G.add_edge("早", "日")
-G.add_edge("日", "旦")
-G.add_edge("日", "日本")
-G.add_edge("再见", "见")
-G.add_edge("好久不见", "见")
-G.add_edge("你怎么样", "什么")
-
-
-included_phrases = get_nodes_within_distance(G, node="猫", max_distance=2)
-
-# print(json.dumps(create_d3_data(G, included_nodes=included_phrases), indent=2))
 
 app = Flask(__name__)
 
@@ -65,13 +22,15 @@ def markdownify(s):
 
 @app.route("/")
 def index():
-    selected_phrases = random.sample(G.nodes.items(), 5)
+    selected_phrases = random.sample(
+        chinese_phrase_graph.nodes().items(), min(5, len(chinese_phrase_graph.nodes()))
+    )
 
     selected_graph_nodes = {}
 
     for phrase, _ in selected_phrases:
         local_neighborhood = get_nodes_within_distance(
-            G, node=phrase, max_distance=2
+            chinese_phrase_graph, node=phrase, max_distance=2
         )
 
         for phrase, distance in local_neighborhood.items():
@@ -85,19 +44,24 @@ def index():
     return render_template(
         "index.html",
         phrases=selected_phrases,
-        d3_data=create_d3_data(G, included_nodes=selected_graph_nodes)
+        d3_data=create_d3_data(
+            chinese_phrase_graph, included_nodes=selected_graph_nodes
+        ),
     )
 
 
 @app.route("/every_phrase")
 def every_phrase():
-    for phrase, metadata in G.nodes.items():
+    for phrase, metadata in chinese_phrase_graph.nodes.items():
         metadata["pinyin"] = pinyin.get(phrase, delimiter=" ")
 
     return render_template(
         "every_phrase.html",
-        phrases=sorted(G.nodes.items()),
-        d3_data=create_d3_data(G, included_nodes={node: 1 for node in G.nodes})
+        phrases=sorted(chinese_phrase_graph.nodes.items()),
+        d3_data=create_d3_data(
+            chinese_phrase_graph,
+            included_nodes={node: 1 for node in chinese_phrase_graph.nodes()},
+        ),
     )
 
 
@@ -105,29 +69,29 @@ def every_phrase():
 def phrase_detail():
     phrase = request.args["chars"]
     try:
-        phrase_data = G.nodes[phrase]
+        phrase_data = chinese_phrase_graph.nodes()[phrase]
     except KeyError:
         abort(404)
 
     phrase_data["pinyin"] = pinyin.get(phrase, delimiter=" ")
 
     local_neighborhood = get_nodes_within_distance(
-        G, node=phrase, max_distance=2
+        chinese_phrase_graph, node=phrase, max_distance=2
     )
 
     related_phrases = {}
 
     related_edges = {}
-    for edge in G.edges:
+    for edge in chinese_phrase_graph.edges():
         if phrase in edge:
             other_char = next(c for c in edge if c != phrase)
-            related_edges[other_char] = G.edges[edge]
+            related_edges[other_char] = chinese_phrase_graph.edges()[edge]
 
     for neighbor_phrase, distance in local_neighborhood.items():
         if distance == 1:
             related_phrases[neighbor_phrase] = {
-                "phrase": G.nodes[neighbor_phrase],
-                "link": related_edges[neighbor_phrase]
+                "phrase": chinese_phrase_graph.nodes[neighbor_phrase],
+                "link": related_edges[neighbor_phrase],
             }
 
     return render_template(
@@ -135,14 +99,15 @@ def phrase_detail():
         phrase_chars=phrase,
         phrase_data=phrase_data,
         related_phrases=related_phrases,
-        d3_data=create_d3_data(G, included_nodes=local_neighborhood)
+        d3_data=create_d3_data(chinese_phrase_graph, included_nodes=local_neighborhood),
     )
 
 
 @app.route("/shuffle")
 def shuffle():
-    phrase_chars = random.choice(list(G.nodes))
+    phrase_chars = random.choice(list(chinese_phrase_graph.nodes()))
     return redirect(url_for("phrase_detail", chars=phrase_chars), code=302)
 
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)

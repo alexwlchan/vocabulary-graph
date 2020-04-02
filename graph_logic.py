@@ -1,7 +1,3 @@
-import functools
-
-
-@functools.lru_cache()
 def get_nodes_within_distance(graph, *, node, max_distance):
     """
     Get the nodes within a given distance of the selected node.
@@ -28,9 +24,7 @@ def get_nodes_within_distance(graph, *, node, max_distance):
         # Find all the direct neighbours of anything that's ``search_dist``
         # from the central node.
         nodes_at_search_dist = [
-            node
-            for node, node_dist in result.items()
-            if node_dist == search_dist
+            node for node, node_dist in result.items() if node_dist == search_dist
         ]
 
         for node in nodes_at_search_dist:

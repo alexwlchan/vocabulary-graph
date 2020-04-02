@@ -2,6 +2,7 @@ import json
 import os
 
 import attr
+import networkx as nx
 from networkx.readwrite import json_graph
 import pinyin
 
@@ -16,19 +17,14 @@ class PhraseGraph:
         try:
             data = json.load(open(self.path))
         except FileNotFoundError:
-            data = {
-                "directed": False,
-                "graph": {},
-                "links": [],
-                "nodes": []
-            }
+            data = {"directed": False, "graph": {}, "links": [], "nodes": []}
 
-        return json_graph.node_link_graph(data)
+        return nx.Graph(json_graph.node_link_graph(data))
 
     def graph(self):
         if (
-            self._last_updated is None or
-            os.stat(self.path).st_mtime > self._last_updated
+            self._last_updated is None
+            or os.stat(self.path).st_mtime > self._last_updated
         ):
             try:
                 self._last_updated = os.stat(self.path).st_mtime
@@ -38,6 +34,17 @@ class PhraseGraph:
             self._graph = self._read()
 
         return self._graph
+
+    @property
+    def nodes(self):
+        return self.graph().nodes
+
+    @property
+    def edges(self):
+        return self.graph().edges
+
+    def neighbors(self, *args, **kwargs):
+        return self.graph().neighbors(*args, **kwargs)
 
     def _write(self, graph):
         json_string = json.dumps(
@@ -60,7 +67,6 @@ class PhraseGraph:
 
 class ChinesePhraseGraph(PhraseGraph):
     def add_phrase(self, phrase, **kwargs):
-        print(kwargs)
         kwargs.setdefault("pinyin", pinyin.get(phrase, delimiter=" "))
         return super().add_phrase(phrase, **kwargs)
 

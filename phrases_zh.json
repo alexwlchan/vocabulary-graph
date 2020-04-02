@@ -1,0 +1,191 @@
+{
+  "directed": false,
+  "graph": {},
+  "links": [
+    {
+      "key": 0,
+      "note": "Look at the \u53e3 radical",
+      "source": "\u53e3",
+      "target": "\u5403\u996d"
+    },
+    {
+      "key": 0,
+      "source": "\u53e3",
+      "target": "\u559d"
+    },
+    {
+      "key": 0,
+      "source": "\u53e3",
+      "target": "\u54ac"
+    },
+    {
+      "key": 0,
+      "source": "\u53e3",
+      "target": "\u55b5"
+    },
+    {
+      "key": 0,
+      "source": "\u559d",
+      "target": "\u6e34"
+    },
+    {
+      "key": 0,
+      "source": "\u55b5",
+      "target": "\u732b"
+    },
+    {
+      "key": 0,
+      "note": "Notice the matching radical!",
+      "source": "\u732b",
+      "target": "\u72d7"
+    },
+    {
+      "key": 0,
+      "source": "\u4f60\u597d",
+      "target": "\u60a8\u597d"
+    },
+    {
+      "key": 0,
+      "source": "\u65e9",
+      "target": "\u65e6"
+    },
+    {
+      "key": 0,
+      "source": "\u65e9",
+      "target": "\u65e5"
+    },
+    {
+      "key": 0,
+      "source": "\u65e6",
+      "target": "\u65e5"
+    },
+    {
+      "key": 0,
+      "source": "\u65e5",
+      "target": "\u65e5\u672c"
+    },
+    {
+      "key": 0,
+      "source": "\u597d\u4e45\u4e0d\u89c1",
+      "target": "\u89c1"
+    },
+    {
+      "key": 0,
+      "source": "\u518d\u89c1",
+      "target": "\u89c1"
+    },
+    {
+      "key": 0,
+      "source": "\u4f60\u600e\u4e48\u6837",
+      "target": "\u4ec0\u4e48"
+    }
+  ],
+  "multigraph": true,
+  "nodes": [
+    {
+      "id": "\u53e3",
+      "meaning": "mouth",
+      "pinyin": "k\u01d2u"
+    },
+    {
+      "id": "\u5403\u996d",
+      "meaning": "to eat food",
+      "pinyin": "ch\u012b f\u00e0n"
+    },
+    {
+      "id": "\u559d",
+      "meaning": "to drink",
+      "pinyin": "h\u0113"
+    },
+    {
+      "id": "\u54ac",
+      "meaning": "to bite",
+      "pinyin": "y\u01ceo"
+    },
+    {
+      "id": "\u55b5",
+      "meaning": "to meow, like a cat",
+      "pinyin": "mi\u0101o"
+    },
+    {
+      "id": "\u732b",
+      "meaning": "cat",
+      "pinyin": "m\u0101o"
+    },
+    {
+      "id": "\u72d7",
+      "meaning": "dog",
+      "pinyin": "g\u01d2u"
+    },
+    {
+      "id": "\u6e34",
+      "meaning": "thirsty",
+      "pinyin": "k\u011b"
+    },
+    {
+      "id": "\u4f60\u597d",
+      "meaning": "hello",
+      "pinyin": "n\u01d0 h\u01ceo"
+    },
+    {
+      "id": "\u60a8\u597d",
+      "meaning": "hello, but polite you",
+      "pinyin": "n\u00edn h\u01ceo"
+    },
+    {
+      "id": "\u9ad8\u5174",
+      "meaning": "happy",
+      "pinyin": "g\u0101o x\u012bng"
+    },
+    {
+      "id": "\u65e9",
+      "meaning": "sunrise",
+      "pinyin": "z\u01ceo"
+    },
+    {
+      "id": "\u65e6",
+      "meaning": "early morning",
+      "pinyin": "d\u00e0n"
+    },
+    {
+      "id": "\u65e5",
+      "meaning": "sun",
+      "pinyin": "r\u00ec"
+    },
+    {
+      "id": "\u65e5\u672c",
+      "meaning": "Japan",
+      "pinyin": "r\u00ec b\u011bn"
+    },
+    {
+      "id": "\u597d\u4e45\u4e0d\u89c1",
+      "meaning": "long time no see",
+      "pinyin": "h\u01ceo j\u01d0u b\u00f9 ji\u00e0n"
+    },
+    {
+      "id": "\u518d\u89c1",
+      "meaning": "goodbye",
+      "pinyin": "z\u00e0i ji\u00e0n"
+    },
+    {
+      "id": "\u89c1",
+      "meaning": "to see",
+      "pinyin": "ji\u00e0n"
+    },
+    {
+      "id": "\u4f60\u600e\u4e48\u6837",
+      "meaning": "how are you doing?",
+      "pinyin": "n\u01d0 z\u011bn y\u0101o y\u00e1ng"
+    },
+    {
+      "id": "\u4ec0\u4e48",
+      "meaning": "what?",
+      "pinyin": "sh\u00ed y\u0101o"
+    },
+    {
+      "id": "\u6700\u8fd1",
+      "meaning": "recently",
+      "pinyin": "z\u00f9i j\u00ecn"
+    }
+  ]
+}
