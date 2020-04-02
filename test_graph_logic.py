@@ -3,7 +3,7 @@
 import networkx as nx
 import pytest
 
-from app import create_d3_data, get_nodes_within_distance
+from graph_logic import create_d3_data, get_nodes_within_distance
 
 
 @pytest.mark.parametrize(
