@@ -3,84 +3,138 @@
   "graph": {},
   "links": [
     {
-      "key": 0,
       "note": "Look at the \u53e3 radical",
       "source": "\u53e3",
       "target": "\u5403\u996d"
     },
     {
-      "key": 0,
       "source": "\u53e3",
       "target": "\u559d"
     },
     {
-      "key": 0,
+      "source": "\u53e3",
+      "target": "\u5477"
+    },
+    {
       "source": "\u53e3",
       "target": "\u54ac"
     },
     {
-      "key": 0,
       "source": "\u53e3",
       "target": "\u55b5"
     },
     {
-      "key": 0,
+      "source": "\u559d",
+      "target": "\u5477"
+    },
+    {
       "source": "\u559d",
       "target": "\u6e34"
     },
     {
-      "key": 0,
       "source": "\u55b5",
       "target": "\u732b"
     },
     {
-      "key": 0,
       "note": "Notice the matching radical!",
       "source": "\u732b",
       "target": "\u72d7"
     },
     {
-      "key": 0,
       "source": "\u4f60\u597d",
       "target": "\u60a8\u597d"
     },
     {
-      "key": 0,
       "source": "\u65e9",
       "target": "\u65e6"
     },
     {
-      "key": 0,
       "source": "\u65e9",
       "target": "\u65e5"
     },
     {
-      "key": 0,
       "source": "\u65e6",
       "target": "\u65e5"
     },
     {
-      "key": 0,
       "source": "\u65e5",
       "target": "\u65e5\u672c"
     },
     {
-      "key": 0,
       "source": "\u597d\u4e45\u4e0d\u89c1",
       "target": "\u89c1"
     },
     {
-      "key": 0,
       "source": "\u518d\u89c1",
       "target": "\u89c1"
     },
     {
-      "key": 0,
       "source": "\u4f60\u600e\u4e48\u6837",
       "target": "\u4ec0\u4e48"
+    },
+    {
+      "note": "Use \u53f7\u7801 when asking how many of something",
+      "source": "\u591a\u5c11",
+      "target": "\u53f7\u7801"
+    },
+    {
+      "source": "\u591a\u5c11",
+      "target": "\u51e0"
+    },
+    {
+      "source": "\u7535\u8bdd",
+      "target": "\u7535\u8bdd\u53f7\u7801"
+    },
+    {
+      "source": "\u7535\u8bdd",
+      "target": "\u7535"
+    },
+    {
+      "source": "\u53f7\u7801",
+      "target": "\u7535\u8bdd\u53f7\u7801"
+    },
+    {
+      "source": "\u8f66\u5b50",
+      "target": "\u706b\u8f66"
+    },
+    {
+      "source": "\u8f66\u5b50",
+      "target": "\u516c\u8f66"
+    },
+    {
+      "source": "\u8f66\u5b50",
+      "target": "\u9a6c\u8f66"
+    },
+    {
+      "source": "\u8f66\u5b50",
+      "target": "\u7535\u8f66"
+    },
+    {
+      "source": "\u8f66\u5b50",
+      "target": "\u7535\u52a8\u6c7d\u8f66"
+    },
+    {
+      "source": "\u516c\u8f66",
+      "target": "\u516c"
+    },
+    {
+      "source": "\u7535\u8f66",
+      "target": "\u7535\u52a8\u6c7d\u8f66"
+    },
+    {
+      "source": "\u7535\u8f66",
+      "target": "\u7535"
+    },
+    {
+      "source": "\u7535\u52a8\u6c7d\u8f66",
+      "target": "\u7535"
+    },
+    {
+      "source": "\u7535",
+      "target": "\u7535\u89c6"
     }
   ],
-  "multigraph": true,
+  "multigraph": false,
   "nodes": [
     {
       "id": "\u53e3",
@@ -175,17 +229,110 @@
     {
       "id": "\u4f60\u600e\u4e48\u6837",
       "meaning": "how are you doing?",
-      "pinyin": "n\u01d0 z\u011bn me y\u00e1ng"
+      "pinyin": "n\u01d0 z\u011bn y\u0101o y\u00e1ng"
     },
     {
       "id": "\u4ec0\u4e48",
       "meaning": "what?",
-      "pinyin": "shén me"
+      "pinyin": "sh\u00ed y\u0101o"
     },
     {
       "id": "\u6700\u8fd1",
       "meaning": "recently",
       "pinyin": "z\u00f9i j\u00ecn"
+    },
+    {
+      "id": "\u5477",
+      "meaning": "to sip",
+      "pinyin": "xi\u0101"
+    },
+    {
+      "id": "\u591a\u5c11",
+      "meaning": "how many?",
+      "pinyin": "du\u014d sh\u01ceo"
+    },
+    {
+      "id": "\u7535\u8bdd",
+      "meaning": "telephone \u260e\ufe0f",
+      "pinyin": "di\u00e0n hu\u00e0"
+    },
+    {
+      "id": "\u53f7\u7801",
+      "meaning": "numbers",
+      "pinyin": "h\u00e0o m\u01ce"
+    },
+    {
+      "id": "\u7535\u8bdd\u53f7\u7801",
+      "meaning": "telephone number",
+      "pinyin": "di\u00e0n hu\u00e0 h\u00e0o m\u01ce"
+    },
+    {
+      "id": "\u540d\u5b57",
+      "meaning": "name",
+      "pinyin": "m\u00edng z\u00ec"
+    },
+    {
+      "id": "\u8001\u5e08",
+      "meaning": "teacher",
+      "pinyin": "l\u01ceo sh\u012b"
+    },
+    {
+      "id": "\u8bf4",
+      "meaning": "to speak",
+      "pinyin": "shu\u014d"
+    },
+    {
+      "id": "\u8f66\u5b50",
+      "meaning": "car/vehicle \ud83d\ude97",
+      "pinyin": "ch\u0113 z\u01d0"
+    },
+    {
+      "id": "\u706b\u8f66",
+      "meaning": "train \ud83d\ude84",
+      "notes": "a fire-powered vehicle is a train",
+      "pinyin": "hu\u01d2 ch\u0113"
+    },
+    {
+      "id": "\u516c\u8f66",
+      "meaning": "bus \ud83d\ude8c",
+      "notes": "a public vehicle is a bus",
+      "pinyin": "g\u014dng ch\u0113"
+    },
+    {
+      "id": "\u516c",
+      "meaning": "public",
+      "pinyin": "g\u014dng"
+    },
+    {
+      "id": "\u9a6c\u8f66",
+      "meaning": "a horse-drawn cart",
+      "pinyin": "m\u01ce ch\u0113"
+    },
+    {
+      "id": "\u7535\u8f66",
+      "meaning": "a tram",
+      "notes": "an electric vehicle is a tram (rather than an electric car, because trams predate electric cars)",
+      "pinyin": "di\u00e0n ch\u0113"
+    },
+    {
+      "id": "\u7535\u52a8\u6c7d\u8f66",
+      "meaning": "an electric car \u26a1\ud83d\ude97",
+      "pinyin": "di\u00e0n d\u00f2ng q\u00ec ch\u0113"
+    },
+    {
+      "id": "\u51e0",
+      "meaning": "how many?",
+      "pinyin": "j\u012b"
+    },
+    {
+      "id": "\u7535",
+      "meaning": "electricity \u26a1",
+      "pinyin": "di\u00e0n"
+    },
+    {
+      "id": "\u7535\u89c6",
+      "meaning": "television \ud83d\udcfa",
+      "pinyin": "di\u00e0n sh\u00ec"
     }
   ]
 }

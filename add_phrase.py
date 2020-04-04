@@ -23,9 +23,19 @@ chinese_phrase_graph.add_phrase("见", meaning="to see")
 chinese_phrase_graph.add_phrase("你怎么样", meaning="how are you doing?")
 chinese_phrase_graph.add_phrase("什么", meaning="what?")
 chinese_phrase_graph.add_phrase("最近", meaning="recently")
+chinese_phrase_graph.add_phrase("呷", meaning="to sip")
+chinese_phrase_graph.add_phrase("多少", meaning="how many?")
+chinese_phrase_graph.add_phrase("电话", meaning="telephone ☎️")
+chinese_phrase_graph.add_phrase("号码", meaning="numbers")
+chinese_phrase_graph.add_phrase("电话号码", meaning="telephone number")
+chinese_phrase_graph.add_phrase("名字", meaning="name")
+chinese_phrase_graph.add_phrase("老师", meaning="teacher")
+chinese_phrase_graph.add_phrase("说", meaning="to speak")
 
 chinese_phrase_graph.connect_phrases("口", "吃饭", note="Look at the 口 radical")
 chinese_phrase_graph.connect_phrases("口", "喝")
+chinese_phrase_graph.connect_phrases("口", "呷")
+chinese_phrase_graph.connect_phrases("呷", "喝")
 chinese_phrase_graph.connect_phrases("口", "咬")
 chinese_phrase_graph.connect_phrases("口", "喵")
 chinese_phrase_graph.connect_phrases("猫", "喵")
@@ -39,3 +49,46 @@ chinese_phrase_graph.connect_phrases("日", "日本")
 chinese_phrase_graph.connect_phrases("再见", "见")
 chinese_phrase_graph.connect_phrases("好久不见", "见")
 chinese_phrase_graph.connect_phrases("你怎么样", "什么")
+chinese_phrase_graph.connect_phrases(
+    "多少", "号码", note="Use 号码 when asking how many of something"
+)
+chinese_phrase_graph.connect_phrases("电话号码", "电话")
+chinese_phrase_graph.connect_phrases("电话号码", "号码")
+
+chinese_phrase_graph.add_phrase("车子", meaning="car/vehicle 🚗")
+chinese_phrase_graph.add_phrase(
+    "火车", meaning="train 🚄", notes="a fire-powered vehicle is a train"
+)
+chinese_phrase_graph.connect_phrases("车子", "火车")
+
+chinese_phrase_graph.add_phrase(
+    "公车", meaning="bus 🚌", notes="a public vehicle is a bus"
+)
+chinese_phrase_graph.connect_phrases("车子", "公车")
+chinese_phrase_graph.add_phrase("公", meaning="public")
+chinese_phrase_graph.connect_phrases("公", "公车")
+
+chinese_phrase_graph.add_phrase("马车", meaning="a horse-drawn cart")
+chinese_phrase_graph.connect_phrases("车子", "马车")
+
+chinese_phrase_graph.add_phrase(
+    "电车",
+    meaning="a tram",
+    notes="an electric vehicle is a tram (rather than an electric car, because trams predate electric cars)",
+)
+chinese_phrase_graph.connect_phrases("车子", "电车")
+
+chinese_phrase_graph.add_phrase("电动汽车", meaning="an electric car ⚡🚗")
+chinese_phrase_graph.connect_phrases("车子", "电动汽车")
+chinese_phrase_graph.connect_phrases("电车", "电动汽车")
+
+chinese_phrase_graph.add_phrase("几", meaning="how many?")
+chinese_phrase_graph.connect_phrases("几", "多少")
+
+chinese_phrase_graph.add_phrase("电视", meaning="television 📺")
+
+chinese_phrase_graph.add_phrase("电", meaning="electricity ⚡")
+chinese_phrase_graph.connect_phrases("电", "电话")
+chinese_phrase_graph.connect_phrases("电", "电动汽车")
+chinese_phrase_graph.connect_phrases("电", "电车")
+chinese_phrase_graph.connect_phrases("电", "电视")

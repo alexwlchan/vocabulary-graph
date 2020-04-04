@@ -13,14 +13,20 @@ function drawGraph(graph, height) {
                 return d.id;
             })
             .strength(function(d) {
-              return 0.05 * (d.distance + 1);
+              if (d.distance == 0) {
+                return 0.04;
+              } else if (d.distance == 1) {
+                return 0.35;
+              } else if (d.distance == 2) {
+                return 0.9;
+              }
             }))
         // push nodes apart to space them out
-        .force("charge", d3.forceManyBody().strength(-100))
+        .force("charge", d3.forceManyBody().strength(-150))
         // add some collision detection so they don't overlap
-        .force("collide", d3.forceCollide().radius(25))
+        .force("collide", d3.forceCollide().radius(45))
         // and draw them around the centre of the SVG
-        .force("center", d3.forceCenter(width / 2, height / 2 + 25));
+        .force("center", d3.forceCenter(width / 2, height / 2 - 10));
 
     // Get nodes
     var nodes = graph.nodes;
@@ -59,7 +65,8 @@ function drawGraph(graph, height) {
             .on("start", dragstarted)
             .on("drag", dragged)
             .on("end", dragended)
-      );
+      )
+      ;
 
     // add the nodes to the simulation and
     // tell it what to do on each tick
@@ -117,22 +124,11 @@ function drawGraph(graph, height) {
         return "translate(" + d.x + "," + d.y + ")";
     }
 
-    // build a dictionary of nodes that are linked
-    var linkedByIndex = {};
-    links.forEach(function(d) {
-        linkedByIndex[d.source.index + "," + d.target.index] = 1;
-    });
-
-    // check the dictionary to see if nodes are linked
-    function isConnected(a, b) {
-        return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
-    }
-
     var labels = node.append("text")
         .html(function(d) {
             return "<a class=\"node__label node__distance_" + d.distance + "\" href=\"/phrase?chars=" + d.id + "\">" + d.id + "</a>";
         })
-        .attr('x', 12)
+        .attr('x', 8)
         .attr('y', 3);
 
     function dragstarted(d) {
@@ -147,7 +143,7 @@ function drawGraph(graph, height) {
     }
 
     function dragended(d) {
-        // if (!d3.event.active) simulation.alphaTarget(0);
+        if (!d3.event.active) simulation.alphaTarget(0);
         d.fx = null;
         d.fy = null;
     }
