@@ -8,6 +8,7 @@ attrs==19.3.0             # via -r requirements.in
 click==7.1.1              # via flask
 decorator==4.4.2          # via networkx
 flask==1.1.1              # via -r requirements.in
+gunicorn==20.0.4          # via -r requirements.in
 itsdangerous==1.1.0       # via flask
 jinja2==2.11.1            # via flask
 markdown==3.2.1           # via -r requirements.in
