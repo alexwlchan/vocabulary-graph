@@ -65,12 +65,29 @@ a.phrase_detail_link {
   line-height: 126px;
 }
 
-main, aside .aside_inner {
+main, aside .aside_inner, footer .footer_inner {
   max-width: 750px;
   margin-left:  auto;
   margin-right: auto;
   padding-left:  1.5em;
   padding-right: 1.5em;
+}
+
+footer {
+  margin-top: 3em;
+  border-top: 0.5px solid #aaa;
+  color: #aaa;
+  font-size: 75%;
+  padding: 1.5em;
+  padding-bottom: 3.5em;
+}
+
+footer a {
+  color: #888;
+}
+
+a:hover {
+  background: rgba(100, 100, 100, 0.25);
 }
 
 p {
