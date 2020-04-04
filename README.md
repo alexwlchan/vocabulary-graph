@@ -5,7 +5,7 @@ When you look at a word, you can see a graph of related words:
 
 [graphs]: https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)
 
-![screenshot](screenshot.png)
+![screenshot](screenshot_chezi.png)
 
 Words could be related for a number of reasons; what's important is that the relation makes them easier to remember.
 For example:
