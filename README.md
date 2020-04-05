@@ -17,7 +17,7 @@ For example:
 I find it easier to remember a cluster of related words, than to learn each word separately.
 I often draw word graphs by hand; this allows me to draw graphs on a bigger scale.
 
-You can read more in [**the accompanying blog post**](https://alexwlchan.net/2020/04/vocabulary-graphs/), or play with the app [**on Glitch**](https://chinese-vocabulary-graph.glitch.me/).
+You can read more in [**the accompanying blog post**](https://alexwlchan.net/2020/04/storing-language-vocabulary-as-a-graph/), or play with the app [**on Glitch**](https://chinese-vocabulary-graph.glitch.me/).
 
 
 
