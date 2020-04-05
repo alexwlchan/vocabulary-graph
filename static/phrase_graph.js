@@ -14,11 +14,11 @@ function drawGraph(graph, height) {
             })
             .strength(function(d) {
               if (d.distance == 0) {
-                return 0.04;
+                return 0.15;
               } else if (d.distance == 1) {
                 return 0.35;
               } else if (d.distance == 2) {
-                return 0.9;
+                return 0.7;
               }
             }))
         // push nodes apart to space them out
