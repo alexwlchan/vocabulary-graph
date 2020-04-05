@@ -25,12 +25,45 @@ chinese_phrase_graph.add_phrase("什么", meaning="what?")
 chinese_phrase_graph.add_phrase("最近", meaning="recently")
 chinese_phrase_graph.add_phrase("呷", meaning="to sip")
 chinese_phrase_graph.add_phrase("多少", meaning="how many?")
+chinese_phrase_graph.add_phrase("名字", meaning="name")
+chinese_phrase_graph.add_phrase("说", meaning="to speak")
+
+chinese_phrase_graph.add_phrase("女朋友", meaning="girlfriend")
+chinese_phrase_graph.add_phrase("朋友", meaning="friend")
+chinese_phrase_graph.connect_phrases("女朋友", "朋友")
+
+chinese_phrase_graph.add_phrase("书", meaning="book")
+chinese_phrase_graph.add_phrase("看", meaning="to read")
+chinese_phrase_graph.connect_phrases("书", "看")
+
 chinese_phrase_graph.add_phrase("电话", meaning="telephone ☎️")
 chinese_phrase_graph.add_phrase("号码", meaning="numbers")
 chinese_phrase_graph.add_phrase("电话号码", meaning="telephone number")
-chinese_phrase_graph.add_phrase("名字", meaning="name")
+
+chinese_phrase_graph.add_phrase("电脑", meaning="computer")
+chinese_phrase_graph.connect_phrases("电", "电脑")
+
+chinese_phrase_graph.add_phrase("最", meaning="most")
+chinese_phrase_graph.add_phrase("最爱", meaning="favourite")
+chinese_phrase_graph.connect_phrases("最", "最爱")
+
+chinese_phrase_graph.add_phrase("每天", meaning="every day")
+
+chinese_phrase_graph.add_phrase("下午", meaning="afternoon")
+
+chinese_phrase_graph.add_phrase("喜欢", meaning="to like")
+
+chinese_phrase_graph.add_phrase("玩", meaning="to play")
+chinese_phrase_graph.add_phrase("游戏", meaning="game")
+chinese_phrase_graph.connect_phrases("玩", "游戏")
+
+chinese_phrase_graph.add_phrase("孩子", meaning="children")
+
 chinese_phrase_graph.add_phrase("老师", meaning="teacher")
-chinese_phrase_graph.add_phrase("说", meaning="to speak")
+chinese_phrase_graph.add_phrase("学生", meaning="student")
+chinese_phrase_graph.connect_phrases("老师", "学生")
+
+chinese_phrase_graph.add_phrase("漂亮", meaning="pretty")
 
 chinese_phrase_graph.connect_phrases("口", "吃饭", note="Look at the 口 radical")
 chinese_phrase_graph.connect_phrases("口", "喝")
@@ -90,5 +123,6 @@ chinese_phrase_graph.add_phrase("电视", meaning="television 📺")
 chinese_phrase_graph.add_phrase("电", meaning="electricity ⚡")
 chinese_phrase_graph.connect_phrases("电", "电话")
 chinese_phrase_graph.connect_phrases("电", "电动汽车")
-chinese_phrase_graph.connect_phrases("电", "电车")
 chinese_phrase_graph.connect_phrases("电", "电视")
+
+chinese_phrase_graph.connect_phrases("电", "电车")

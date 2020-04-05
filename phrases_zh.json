@@ -94,6 +94,10 @@
       "target": "\u7535\u8bdd\u53f7\u7801"
     },
     {
+      "source": "\u8001\u5e08",
+      "target": "\u5b66\u751f"
+    },
+    {
       "source": "\u8f66\u5b50",
       "target": "\u706b\u8f66"
     },
@@ -132,6 +136,26 @@
     {
       "source": "\u7535",
       "target": "\u7535\u89c6"
+    },
+    {
+      "source": "\u7535",
+      "target": "\u7535\u8111"
+    },
+    {
+      "source": "\u5973\u670b\u53cb",
+      "target": "\u670b\u53cb"
+    },
+    {
+      "source": "\u4e66",
+      "target": "\u770b"
+    },
+    {
+      "source": "\u6700",
+      "target": "\u6700\u7231"
+    },
+    {
+      "source": "\u73a9",
+      "target": "\u6e38\u620f"
     }
   ],
   "multigraph": false,
@@ -333,6 +357,81 @@
       "id": "\u7535\u89c6",
       "meaning": "television \ud83d\udcfa",
       "pinyin": "di\u00e0n sh\u00ec"
+    },
+    {
+      "id": "\u5973\u670b\u53cb",
+      "meaning": "girlfriend",
+      "pinyin": "nv\u030c p\u00e9ng y\u01d2u"
+    },
+    {
+      "id": "\u670b\u53cb",
+      "meaning": "friend",
+      "pinyin": "p\u00e9ng y\u01d2u"
+    },
+    {
+      "id": "\u4e66",
+      "meaning": "book",
+      "pinyin": "sh\u016b"
+    },
+    {
+      "id": "\u770b",
+      "meaning": "to read",
+      "pinyin": "k\u00e0n"
+    },
+    {
+      "id": "\u7535\u8111",
+      "meaning": "computer",
+      "pinyin": "di\u00e0n n\u01ceo"
+    },
+    {
+      "id": "\u6700",
+      "meaning": "most",
+      "pinyin": "z\u00f9i"
+    },
+    {
+      "id": "\u6700\u7231",
+      "meaning": "favourite",
+      "pinyin": "z\u00f9i \u00e0i"
+    },
+    {
+      "id": "\u6bcf\u5929",
+      "meaning": "every day",
+      "pinyin": "m\u011bi ti\u0101n"
+    },
+    {
+      "id": "\u4e0b\u5348",
+      "meaning": "afternoon",
+      "pinyin": "xi\u00e0 w\u01d4"
+    },
+    {
+      "id": "\u559c\u6b22",
+      "meaning": "to like",
+      "pinyin": "x\u01d0 hu\u0101n"
+    },
+    {
+      "id": "\u73a9",
+      "meaning": "to play",
+      "pinyin": "w\u00e1n"
+    },
+    {
+      "id": "\u6e38\u620f",
+      "meaning": "game",
+      "pinyin": "y\u00f3u x\u00ec"
+    },
+    {
+      "id": "\u5b69\u5b50",
+      "meaning": "children",
+      "pinyin": "h\u00e1i z\u01d0"
+    },
+    {
+      "id": "\u5b66\u751f",
+      "meaning": "student",
+      "pinyin": "xu\u00e9 sh\u0113ng"
+    },
+    {
+      "id": "\u6f02\u4eae",
+      "meaning": "pretty",
+      "pinyin": "pi\u0101o li\u00e0ng"
     }
   ]
 }
