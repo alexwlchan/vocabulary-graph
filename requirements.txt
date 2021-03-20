@@ -4,18 +4,30 @@
 #
 #    pip-compile
 #
-attrs==19.3.0             # via -r requirements.in
-click==7.1.1              # via flask
-decorator==4.4.2          # via networkx
-flask==1.1.1              # via -r requirements.in
-gunicorn==20.0.4          # via -r requirements.in
-itsdangerous==1.1.0       # via flask
-jinja2==2.11.1            # via flask
-markdown==3.2.1           # via -r requirements.in
-markupsafe==1.1.1         # via jinja2
-networkx==2.4             # via -r requirements.in
-pinyin==0.4.0             # via -r requirements.in
-werkzeug==1.0.1           # via flask
+attrs==19.3.0
+    # via -r requirements.in
+click==7.1.1
+    # via flask
+decorator==4.4.2
+    # via networkx
+flask==1.1.1
+    # via -r requirements.in
+gunicorn==20.0.4
+    # via -r requirements.in
+itsdangerous==1.1.0
+    # via flask
+jinja2==2.11.3
+    # via flask
+markdown==3.2.1
+    # via -r requirements.in
+markupsafe==1.1.1
+    # via jinja2
+networkx==2.4
+    # via -r requirements.in
+pinyin==0.4.0
+    # via -r requirements.in
+werkzeug==1.0.1
+    # via flask
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
